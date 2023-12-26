@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greenden</title>
+    <!--tailwind css cdn links-->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!--responsive nav bar-->
+    <nav class="bg-green-100 p-3 flex items-center justify-between shadow-xl sticky top-0 z-10">
+        <h1 class="text-3xl">GREENDEN</h1>
+
+        <svg id="menuicon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            data-slot="icon" class="w-6 h-6 md:hidden">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+        </svg>
+
+
+        <ul class="flex gap-10 text-gray-600 hidden md:flex">
+            <li>
+                <a class="hover:underline hover:text-blue-400" href="./index.html">HOME</a>
+            </li>
+            <li>
+                <a class="hover:underline hover:text-blue-400" href="./product.html">PRODUCTS</a>
+            </li>
+            <li>
+                <a class="hover:underline hover:text-blue-400" href="./contact.html">CONTACT</a>
+            </li>
+        </ul>
+    </nav>
+    <!--sidenav-->
+
+
+    <section id="sidenav" class="bg-green-100 fixed z-20 top-0 transition-all duration-1000"  style="width: 50%; height: 100vh; right: -50%;">
+        <diV class="text-right p-5 ">
+            <p id="closenav" class="inline-cursor-pointer">X</p>
+        </diV>
+                <ul class=" flex flex-col gap-10 items-center text-gray-600">
+                    <li>
+                        <a class="hover:underline hover:text-blue-400" href="./index.html">HOME</a>
+                    </li>
+                    <li>
+                        <a class="hover:underline hover:text-blue-400" href="./product.html">PRODUCTS</a>
+                    </li>
+                    <li>
+                        <a class="hover:underline hover:text-blue-400" href="./contact.html">CONTACT</a>
+                    </li>
+                </ul>
+        
+            </section>
+
+    <!--products-->
+<section class=" mt-5 text-center">
+    <h1 class="font-bold">OUR PRODUCTS</h1>
+    <input type="text" class=" m-5 p-2 border border-black" style="width: 50%;" onkeyup="searchfunction()" id="Input">
+    <div class="grid grid-cols-2 md:grid-cols-4">
+        <div>
+            <img src="./flower1.jpg" class="inline hover: shadow-xl transform hover:-translate-y-2">
+            <p class="text-2xl">Toxic plant</p>
+            <p>$40</p>
+        </div>
+        <div>
+            <img src="./hibiscus.jpg" class="inline hover: shadow-xl transform hover:-translate-y-2">
+            <p class="text-2xl">Hibiscus flower</p>
+            <p>$50</p>
+        </div>
+        <div>
+            <img src="./rose4.jpg" class="inline hover: shadow-xl transform hover:-translate-y-2">
+            <p class="text-2xl">Snake  plant</p>
+            <p>$140</p>
+        </div>
+        <div>
+            <img src="./rose2.jpg" class="inline hover: shadow-xl transform hover:-translate-y-2">
+            <p class="text-2xl">white Lilly</p>
+            <p>$100</p>
+        </div>
+
+        <div>
+            <img src="./hibiscus.jpg" class="inline hover: shadow-xl transform hover:-translate-y-2">
+            <p class="text-2xl">Red flower</p>
+            <p>$40</p>
+        </div>
+        <div>
+            <img src="./rose4.jpg" class="inline hover: shadow-xl transform hover:-translate-y-2">
+            <p class="text-2xl"> Hybrid flower</p>
+            <p>$50</p>
+        </div>
+        <div>
+            <img src="./header image.jpeg" class="inline hover: shadow-xl transform hover:-translate-y-2">
+            <p class="text-2xl">Coconut</p>
+            <p>$140</p>
+        </div>
+        <div>
+            <img src="./hibiscus1.jpg" class="inline hover: shadow-xl transform hover:-translate-y-2">
+            <p class="text-2xl">Red rose</p>
+            <p>$100</p>
+        </div>
+
+
+
+    </div>
+</section>
+
+
+    <!--footer-->
+    <section class=" mt-5 bg-green-300 pl-10 flex flex-col gap-5 ">
+        <h1 class="font-bold text-4xl">GREENDEN</h1>
+        <p > If u buy the product through all over the India, the product will delieverd in 3 Days!</p>
+        <p>@ 2021 Greenday.com</p>
+
+
+    </section>
+
+</body>
+
+</html>
+    <script>
+        var sidenav = document.getElementById('sidenav')
+var menuicon = document.getElementById('menuicon')
+var closenav = document.getElementById('closenav')
+
+menuicon.addEventListener("click",function(){
+    sidenav.style.right=0
+}
+)
+
+closenav.addEventListener("click",function(){
+    sidenav.style.right="-50%"
+}
+)
+        function searchfunction() {
+            var inputValue = document.getElementById('Input').value;
+            // console.log(inputValue)
+            var setpad = document.querySelector('section')
+            //  console.log(setpad)
+             var Div = setpad.querySelectorAll('div')
+            // console.log(Div)
+            for (let i of Div) {
+                var plants = i.querySelector('p').textContent;
+                console.log(plants)
+                if (plants.includes(inputValue)) {
+                    i.style.display = 'block'
+                }
+                else {
+                    i.style.display = 'none'
+                }
+            }
+        }
+    </script>
